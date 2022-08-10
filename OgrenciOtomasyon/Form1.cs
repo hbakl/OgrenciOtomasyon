@@ -23,5 +23,14 @@ namespace OgrenciOtomasyon
             fr.numara = textBox1.Text;
             fr.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            FrmOgretmen fro = new FrmOgretmen();
+            fro.numara = textBox1.Text;
+            fro.Show();
+
+        }
     }
 }
