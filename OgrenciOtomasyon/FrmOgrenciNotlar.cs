@@ -33,8 +33,19 @@ namespace OgrenciOtomasyon
             da.Fill(dt);
             dataGridView1.DataSource = dt;
 
+            //Öğrenci ismini form textine yazdıan kodlar.
+            baglanti.Open();
+            SqlCommand komut2 = new SqlCommand("select OGRAD+' '+OGRSOYAD from TBLOGRENCILER where OGRID=@p2", baglanti);
+            komut2.Parameters.AddWithValue("@p2", numara);
+            SqlDataReader dr2;
+            dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                this.Text = dr2.GetValue(0).ToString();
+            }
+            dr2.Close();
+            baglanti.Close();
 
-
-          }
+        }
     }
 }
