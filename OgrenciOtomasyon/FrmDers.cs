@@ -60,7 +60,7 @@ namespace OgrenciOtomasyon
                 //ekleme butonu kodları
                 baglanti.Open();
                 SqlCommand komut = new SqlCommand("insert into TBLDERSLER (DERSAD) values (@p1)", baglanti);
-                komut.Parameters.AddWithValue("@p1", textBox2.Text);
+                komut.Parameters.AddWithValue("@p1", textBox2.Text.ToUpper());
                 komut.ExecuteNonQuery();
                 MessageBox.Show("Yeni ders başarı ile kayıt edildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -119,7 +119,7 @@ namespace OgrenciOtomasyon
             //güncelleme butonu kodları
             baglanti.Open();
             SqlCommand komut = new SqlCommand("update TBLDERSLER set DERSAD=@p1 where DERSID=@p2", baglanti);
-            komut.Parameters.AddWithValue("@p1", textBox2.Text);
+            komut.Parameters.AddWithValue("@p1", textBox2.Text.ToUpper());
             komut.Parameters.AddWithValue("@p2", textBox1.Text);
             komut.ExecuteNonQuery();
             MessageBox.Show("Ders başarı ile günccelelldi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);

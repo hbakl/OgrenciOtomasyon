@@ -90,6 +90,7 @@
             this.BtnSil.TabIndex = 14;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = false;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnEkle
             // 
@@ -160,9 +161,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(65, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Ders Adı:";
+            this.label3.Text = "Kulüp Adı:";
             // 
             // textBox1
             // 
@@ -179,9 +180,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(72, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Ders ID:";
+            this.label2.Text = "Kulüp ID:";
             // 
             // FrmKulup
             // 

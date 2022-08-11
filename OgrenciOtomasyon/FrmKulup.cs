@@ -59,7 +59,7 @@ namespace OgrenciOtomasyon
                 //güncelleme butonu kodları
                 baglanti.Open();
                 SqlCommand komut = new SqlCommand("update TBLKULUPLER set KULUPAD=@p1 where KULUPID=@p2", baglanti);
-                komut.Parameters.AddWithValue("@p1", textBox2.Text);
+                komut.Parameters.AddWithValue("@p1", textBox2.Text.ToUpper());
                 komut.Parameters.AddWithValue("@p2", textBox1.Text);
                 komut.ExecuteNonQuery();
                 MessageBox.Show("Kulüp başarı ile günccelelldi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,18 +88,18 @@ namespace OgrenciOtomasyon
 
         private void BtnEkle_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox2.Text != "")
             {
                 //ekleme butonu kodları
                 baglanti.Open();
-                SqlCommand komut = new SqlCommand("insert into TBLDERSLER (DERSAD) values (@p1)", baglanti);
-                komut.Parameters.AddWithValue("@p1", textBox2.Text);
+                SqlCommand komut = new SqlCommand("insert into TBLKULUPLER (KULUPAD) values (@p1)", baglanti);
+                komut.Parameters.AddWithValue("@p1", textBox2.Text.ToUpper());
                 komut.ExecuteNonQuery();
-                MessageBox.Show("Yeni ders başarı ile kayıt edildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Yeni kulüp başarı ile kayıt edildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 //datagridviewde dersleri yenileyen kodlar.
-                SqlCommand komut2 = new SqlCommand("select * from TBLDERSLER ", baglanti);
+                SqlCommand komut2 = new SqlCommand("select * from TBLKULUPLER ", baglanti);
                 SqlDataAdapter da = new SqlDataAdapter(komut2);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -118,6 +118,32 @@ namespace OgrenciOtomasyon
                 MessageBox.Show("Lütfen bir kulüp adı giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            //silme butonu kodları
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("delete from TBLKULUPLER where KULUPID=@p1", baglanti);
+            komut.Parameters.AddWithValue("@p1", textBox1.Text);
+            komut.ExecuteNonQuery();
+            MessageBox.Show("Kulüp başarı ile silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            //datagridviewde dersleri yenileyen kodlar.
+            SqlCommand komut2 = new SqlCommand("select * from TBLKULUPLER ", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter(komut2);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            baglanti.Close();
+
+            //Silme sonrası butonları ve textboxları düzenleyen kısım
+            textBox1.Text = "";
+            textBox2.Text = "";
+            BtnEkle.Enabled = true;
+            BtnSil.Enabled = false;
+            BtnGuncelle.Enabled = false;
         }
     }
 }
