@@ -24,6 +24,7 @@ namespace OgrenciOtomasyon
                 FrmOgrenciNotlar fr = new FrmOgrenciNotlar();
                 fr.numara = textBox1.Text;
                 fr.Show();
+                this.Hide();
             }
             else
             {
@@ -40,6 +41,7 @@ namespace OgrenciOtomasyon
                 FrmOgretmen fro = new FrmOgretmen();
                 fro.numara = textBox1.Text;
                 fro.Show();
+                this.Hide();
             }
             else
             {

@@ -21,7 +21,9 @@ namespace OgrenciOtomasyon
         private void button2_Click(object sender, EventArgs e)
         {
             FrmKulup frk = new FrmKulup();
+            frk.numara = numara;
             frk.Show();
+            this.Hide();
         }
 
 

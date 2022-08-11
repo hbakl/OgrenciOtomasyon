@@ -30,6 +30,8 @@ namespace OgrenciOtomasyon
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].HeaderText = "Ders İD";
+            dataGridView1.Columns[1].HeaderText = "Ders Adı";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -114,7 +116,7 @@ namespace OgrenciOtomasyon
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-            //silme butonu kodları
+            //güncelleme butonu kodları
             baglanti.Open();
             SqlCommand komut = new SqlCommand("update TBLDERSLER set DERSAD=@p1 where DERSID=@p2", baglanti);
             komut.Parameters.AddWithValue("@p1", textBox2.Text);
