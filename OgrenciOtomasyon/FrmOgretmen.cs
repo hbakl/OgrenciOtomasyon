@@ -61,5 +61,20 @@ namespace OgrenciOtomasyon
             frd.Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bu kısım ileride aktif hale gelecektir.", "Yapım aşamasında", MessageBoxButtons.OK);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bu kısım ileride aktif hale gelecektir.", "Yapım aşamasında", MessageBoxButtons.OK);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bu kısım ileride aktif hale gelecektir.", "Yapım aşamasında", MessageBoxButtons.OK);
+        }
     }
 }
